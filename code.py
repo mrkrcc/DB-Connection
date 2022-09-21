@@ -123,16 +123,3 @@ class Databases():
     #: Connect Oracle DB, get cursor to execute query
     cursor = Databases._connectOracle( host, port, serviceName, username, password)
     return pd.DataFrame( cursor.execute( query ) )
-
-test = Databases()
-
-print( "MongoDB" + "\n" )
-print(test.readMongo(db = "mydatabase", collection = "deneme" ))
-print( "MySQL" + "\n" )
-print(test.readMySQL("SELECT * FROM Persons", "testDB", "password", "root", "localhost"))
-print( "Cassandra" + "\n" )
-print(test.readCassandra( "cityinfo", "cityinfo", "SELECT * FROM users", "mrkrc", "Password2022"))
-print( "MSSQL" + "\n" )
-print(test.readMSSQL("ODBC Driver 17 for SQL Server", "mrkrc", "testDb", "SA", "Password2022", "SELECT * FROM dbo.Inventory WHERE quantity > 152"))
-print( "Oracle" + "\n" )
-print(test.readOracle( "adb.ap-tokyo-1.oraclecloud.com", 1521, "qv6mx2mfqogva5o_oracledbmrkrc_high.adb.oraclecloud.com", "mrkrc", "Oracle.12345", "select * from regions" ))
